@@ -16,7 +16,7 @@ class MainActivity : ReactActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        SplashScreen.show(this) // Tutaj
+        SplashScreen.show(this)
         super.onCreate(savedInstanceState)
     }
   /**

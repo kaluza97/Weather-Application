@@ -61,7 +61,7 @@ function App(): React.JSX.Element {
   useEffect(() => {
     setTimeout(() => {
       SplashScreen.hide();
-    }, 1000)
+    }, 500)
   }, [])
 
   const isDarkMode = useColorScheme() === 'dark';
