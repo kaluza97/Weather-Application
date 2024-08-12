@@ -10,13 +10,12 @@ import {
 } from 'react-native';
 import { primaryColor } from '../../variables/global.styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { getFavorites, toggleFavorite } from '../../utils/favoriteUtils';
 import { styles } from './styles';
 import { Props } from './types';
-import { getFavorites, toggleFavorite } from '../../utils/favoriteUtils';
 
 const DetailsScreen: FC<Props> = ({ route }) => {
     const { weatherData } = route.params;
-    console.log(weatherData)
     const currentDate: string = new Date().toLocaleDateString();
     const [isAddedToFavorite, setIsAddedToFavorite] = useState<Array<number>>([]);
 
@@ -60,23 +59,23 @@ const DetailsScreen: FC<Props> = ({ route }) => {
                         </View>
                         <View style={styles.detailsContainer}>
                             <View style={styles.rowContainer}>
-                                <Icon name="calendar-o" size={28} style={styles.icon} />
+                                <Icon name="calendar-o" style={styles.icon} />
                                 <Text style={styles.detailText}>{currentDate}</Text>
                             </View>
                             <View style={styles.rowContainer}>
-                                <Icon name="thermometer" size={28} style={styles.icon} />
+                                <Icon name="thermometer" style={styles.icon} />
                                 <Text style={styles.detailText}>
                                     Max temperatura: {weatherData.main.temp_max}°C
                                 </Text>
                             </View>
                             <View style={styles.rowContainer}>
-                                <Icon name="leaf" size={28} style={styles.icon} />
+                                <Icon name="leaf" style={styles.icon} />
                                 <Text style={styles.detailText}>
                                     Wiatr: {weatherData.wind.speed} m/s
                                 </Text>
                             </View>
                             <View style={styles.rowContainer}>
-                                <Icon name="tint" size={28} style={styles.icon} />
+                                <Icon name="tint" style={styles.icon} />
                                 <Text style={styles.detailText}>
                                     Wilgotność: {weatherData.main.humidity}%
                                 </Text>

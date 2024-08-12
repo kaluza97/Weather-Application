@@ -41,7 +41,6 @@ const FavoriteCard: FC = () => {
 
 
     const handlePress = (item: WeatherDataInterface): void => {
-        console.log(item)
         navigation.navigate('Details', { weatherData: item });
     };
 
@@ -50,7 +49,7 @@ const FavoriteCard: FC = () => {
             <TouchableOpacity onPress={() => handlePress(item)} style={styles.touchableOpacity}>
                 <View>
                     <View style={styles.header}>
-                        <Icon name="map-marker" size={26} color={white} />
+                        <Icon name="map-marker" style={styles.icon} />
                         <Text style={styles.city}>{item.name}</Text>
                     </View>
                     <Text style={styles.description}>{item.weather[0].description}</Text>

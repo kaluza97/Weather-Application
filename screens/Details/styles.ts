@@ -39,6 +39,7 @@ export const styles = StyleSheet.create({
     },
     icon: {
         color: white,
+        fontSize: 28,
         marginRight: 10,
     },
     markerIcon: {

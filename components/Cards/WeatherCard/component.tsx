@@ -12,7 +12,6 @@ const WeatherCard: FC<Props> = ({ weatherData }) => {
     const navigation = useNavigation<NativeStackNavigationProp<{ Details: { weatherData: WeatherDataInterface } }>>();
 
     const handlePress = (): void => {
-        console.log(weatherData, 'hahahahah')
         navigation.navigate('Details', { weatherData });
     };
 
@@ -21,7 +20,7 @@ const WeatherCard: FC<Props> = ({ weatherData }) => {
             <TouchableOpacity onPress={handlePress} style={styles.touchableOpacity}>
                 <View>
                     <View style={styles.header}>
-                        <Icon name="map-marker" size={26} color={white} />
+                        <Icon name="map-marker" style={styles.icon} />
                         <Text style={styles.city}>{weatherData.name}</Text>
                     </View>
                     <Text style={styles.description}>{weatherData.weather[0].description}</Text>

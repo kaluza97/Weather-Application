@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     backgroundColor: primaryColor,
     padding: 16,
     margin: 20,
+    marginTop: 0,
     borderRadius: 10,
   },
   header: {
@@ -24,15 +25,19 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
     color: white,
   },
+  temperature: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: white,
+  },
   noFavorites: {
     fontSize: 28,
     color: white,
     textAlign: 'center',
   },
-  temperature: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: white,
+  icon: {
+    fontSize: 26,
+    color: white
   },
   touchableOpacity: {
     flex: 1,
