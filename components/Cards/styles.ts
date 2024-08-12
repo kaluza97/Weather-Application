@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {primaryColor, white} from '../../variables/global.styles';
+import { StyleSheet } from 'react-native';
+import { primaryColor, white } from '../../variables/global.styles';
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,10 +7,6 @@ export const styles = StyleSheet.create({
     padding: 16,
     margin: 20,
     borderRadius: 10,
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
   header: {
     flexDirection: 'row',
@@ -28,14 +24,20 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
     color: white,
   },
+  noFavorites: {
+    fontSize: 28,
+    color: white,
+    textAlign: 'center',
+  },
   temperature: {
     fontSize: 24,
     fontWeight: 'bold',
     color: white,
   },
-  image: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: white,
+  touchableOpacity: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

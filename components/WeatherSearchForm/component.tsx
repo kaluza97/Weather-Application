@@ -1,47 +1,49 @@
-import React, {FC, useState} from 'react';
-import {View, TextInput, TouchableOpacity} from 'react-native';
-import {inputPlaceholderColor} from '../../variables/global.styles';
+import React, { FC, useState } from 'react';
+import { View, TextInput, TouchableOpacity } from 'react-native';
+import { inputPlaceholderColor } from '../../variables/global.styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {styles} from './styles';
-import {weatherDataSchema, WeatherFormProps} from './types';
+import { styles } from './styles';
+import { WeatherFormProps } from './types';
+import { fetchWeather } from '../../services/fetchWeather';
 
-const WeatherSearchForm: FC<WeatherFormProps> = ({onWeatherData}) => {
-  const [city, setCity] = useState<string>('');
+const WeatherSearchForm: FC<WeatherFormProps> = ({ onWeatherData }) => {
+    const [cityName, setCityName] = useState<string>('');
 
-  const fetchWeather = async () => {
-    try {
-      const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}&units=metric`,
-      );
-      const data = await response.json();
-      const safeData = weatherDataSchema.safeParse(data);
-      if (safeData.success) {
-        onWeatherData(safeData.data);
-      } else {
-        // fallback if lack of data
-        onWeatherData(data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    const handleFetchWeather = () => {
+        if (cityName) {
+            fetchWeather(cityName, onWeatherData);
+        }
+        else {
+            onWeatherData(null)
+        }
+    };
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Wyszukaj miasto"
-          value={city}
-          onChangeText={setCity}
-          style={styles.searchInput}
-          placeholderTextColor={inputPlaceholderColor}
-        />
-        <TouchableOpacity onPress={fetchWeather} style={styles.searchButton}>
-          <Icon name="search" style={styles.searchIcon} />
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
+
+    const handleClear = () => {
+        setCityName('')
+        onWeatherData(null)
+    };
+
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.inputContainer}>
+                <TextInput
+                    placeholder="Wyszukaj miasto"
+                    value={cityName}
+                    onChangeText={setCityName}
+                    style={styles.searchInput}
+                    placeholderTextColor={inputPlaceholderColor}
+                />
+                <TouchableOpacity onPress={handleFetchWeather} style={styles.touchableOpacity}>
+                    <Icon name="search" style={styles.icon} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handleClear} style={styles.touchableOpacity}>
+                    <Icon name="close" style={styles.icon} />
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
 };
 
 export default WeatherSearchForm;

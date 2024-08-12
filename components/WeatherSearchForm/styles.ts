@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import {
   secondaryColor,
   inputTextColor,
@@ -18,16 +18,16 @@ export const styles = StyleSheet.create({
   },
   searchInput: {
     padding: 10,
+    fontSize: 18,
     borderRadius: 10,
     backgroundColor: secondaryColor,
     color: inputTextColor,
     flex: 1,
   },
-  searchButton: {
-    width: 44,
+  touchableOpacity: {
     marginLeft: 10,
   },
-  searchIcon: {
+  icon: {
     backgroundColor: primaryColor,
     fontSize: 24,
     padding: 10,

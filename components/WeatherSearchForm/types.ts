@@ -1,4 +1,4 @@
-import {z} from 'zod';
+import { z } from 'zod';
 
 enum WeatherDescriptions {
   ClearSky = 'clear sky',
@@ -35,7 +35,7 @@ enum WeatherIcons {
 
 export const weatherDataSchema = z.object({
   base: z.string(),
-  clouds: z.object({all: z.number()}),
+  clouds: z.object({ all: z.number() }),
   cod: z.number(),
   coord: z.object({
     lat: z.number(),
@@ -73,12 +73,12 @@ export const weatherDataSchema = z.object({
   ),
   wind: z.object({
     deg: z.number(),
-    gust: z.number(),
+    gust: z.number().optional(),
     speed: z.number(),
   }),
 });
 export type WeatherDataInterface = z.infer<typeof weatherDataSchema>;
 
 export interface WeatherFormProps {
-  onWeatherData: (data: WeatherDataInterface) => void;
+  onWeatherData: (data: WeatherDataInterface | null) => void;
 }
