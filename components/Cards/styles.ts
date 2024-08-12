@@ -1,16 +1,13 @@
-import {StyleSheet} from 'react-native';
-import {primaryColor, white} from '../../variables/global.styles';
+import { StyleSheet } from 'react-native';
+import { primaryColor, white } from '../../variables/global.styles';
 
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: primaryColor,
     padding: 16,
     margin: 20,
+    marginTop: 0,
     borderRadius: 10,
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
   header: {
     flexDirection: 'row',
@@ -33,9 +30,19 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: white,
   },
-  image: {
-    fontSize: 24,
-    fontWeight: 'bold',
+  noFavorites: {
+    fontSize: 28,
     color: white,
+    textAlign: 'center',
+  },
+  icon: {
+    fontSize: 26,
+    color: white
+  },
+  touchableOpacity: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

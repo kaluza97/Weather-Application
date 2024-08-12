@@ -1,10 +1,13 @@
-import {RouteProp} from '@react-navigation/native';
-import {WeatherDataInterface} from '../../components/WeatherSearchForm/types';
+import { RouteProp } from '@react-navigation/native';
+import { WeatherDataInterface } from '../../components/WeatherSearchForm/types';
+
 
 export type RootStackParamList = {
-  weatherData: WeatherDataInterface;
+  Home: undefined;
+  Details: { weatherData: WeatherDataInterface };
 };
 
-export interface Props {
-  route: any;
-}
+
+export type Props = {
+  route: RouteProp<RootStackParamList, 'Details'>;
+};

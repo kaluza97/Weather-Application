@@ -1,8 +1,8 @@
-import {StyleSheet} from 'react-native';
-import {black} from '../../variables/global.styles';
+import { StyleSheet } from 'react-native';
+import { black } from '../../variables/global.styles';
 
 export const styles = StyleSheet.create({
-  appContainer: {
+  container: {
     backgroundColor: black,
     flex: 1,
   },
