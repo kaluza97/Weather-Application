@@ -3,10 +3,9 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { WeatherDataInterface } from '../../WeatherSearchForm/types';
 import { styles } from '../styles';
 import { Props } from '../types';
-import { WeatherDataInterface } from '../../WeatherSearchForm/types';
-import { white } from '../../../variables/global.styles';
 
 const WeatherCard: FC<Props> = ({ weatherData }) => {
     const navigation = useNavigation<NativeStackNavigationProp<{ Details: { weatherData: WeatherDataInterface } }>>();
