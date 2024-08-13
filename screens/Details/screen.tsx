@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -8,14 +8,14 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import { primaryColor } from '../../variables/global.styles';
+import {primaryColor} from '../../variables/global.styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { getFavorites, toggleFavorite } from '../../utils/favoriteUtils';
-import { styles } from './styles';
-import { Props } from './types';
+import {getFavorites, toggleFavorite} from '../../utils/favoriteUtils';
+import {styles} from './styles';
+import {Props} from './types';
 
-const DetailsScreen: FC<Props> = ({ route }) => {
-  const { weatherData } = route.params;
+const DetailsScreen: FC<Props> = ({route}) => {
+  const {weatherData} = route.params;
   const currentDate: string = new Date().toLocaleDateString();
   const [isAddedToFavorite, setIsAddedToFavorite] = useState<Array<number>>([]);
 
@@ -28,19 +28,23 @@ const DetailsScreen: FC<Props> = ({ route }) => {
   }, []);
 
   const onPress = async (): Promise<void> => {
-    const updatedFavorites = await toggleFavorite(isAddedToFavorite, weatherData.id);
+    const updatedFavorites = await toggleFavorite(
+      isAddedToFavorite,
+      weatherData.id,
+    );
     setIsAddedToFavorite(updatedFavorites);
   };
 
-  const getButtonText = (): string => (
-    isAddedToFavorite.includes(weatherData.id) ? 'Usuń z ulubionych' : 'Dodaj do ulubionych'
-  );
+  const getButtonText = (): string =>
+    isAddedToFavorite.includes(weatherData.id)
+      ? 'Usuń z ulubionych'
+      : 'Dodaj do ulubionych';
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={primaryColor} />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
-        {weatherData ?
+        {weatherData ? (
           <>
             <View style={styles.header}>
               <View style={styles.rowContainer}>
@@ -81,18 +85,20 @@ const DetailsScreen: FC<Props> = ({ route }) => {
                 </Text>
               </View>
               <TouchableOpacity onPress={onPress} style={styles.button}>
-                <Text style={styles.buttonText}>{getButtonText()}
-                </Text>
+                <Text style={styles.buttonText}>{getButtonText()}</Text>
               </TouchableOpacity>
             </View>
           </>
-          : <View style={styles.container}>
-            <Text style={styles.cityName}>Nie znaleziono danych pogodowych</Text>
-          </View>}
-
+        ) : (
+          <View style={styles.container}>
+            <Text style={styles.cityName}>
+              Nie znaleziono danych pogodowych
+            </Text>
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 export default DetailsScreen;

@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { buttonsColor, primaryColor, white } from '../../variables/global.styles';
+import {StyleSheet} from 'react-native';
+import {buttonsColor, primaryColor, white} from '../../variables/global.styles';
 
 export const styles = StyleSheet.create({
   container: {
