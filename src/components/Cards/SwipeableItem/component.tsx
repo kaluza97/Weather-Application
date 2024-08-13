@@ -8,11 +8,11 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import { WeatherDataInterface } from '../../WeatherSearchForm/types';
-import { styles } from '../styles';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { colors } from '../../../variables/global.styles';
+import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
+import { styles } from '@components/Cards/styles';
+import { colors } from '@constants/global.styles';
 
 interface SwipeableItemProps {
   item: WeatherDataInterface;

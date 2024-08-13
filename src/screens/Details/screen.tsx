@@ -8,11 +8,11 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
-import { colors } from '../../variables/global.styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { getFavorites, toggleFavorite } from '../../utils/favoriteUtils';
-import { styles } from './styles';
-import { Props } from './types';
+import { getFavorites, toggleFavorite } from '@utils/favoriteUtils';
+import { Props } from '@screens/Details/types';
+import { styles } from '@screens/Details/styles';
+import { colors } from '@constants/global.styles';
 
 const DetailsScreen: FC<Props> = ({ route }) => {
   const { weatherData } = route.params;

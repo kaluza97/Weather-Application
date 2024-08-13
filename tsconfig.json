@@ -4,6 +4,12 @@
     "types": [
       "jest",
       "node"
-    ]
+    ],
+    "baseUrl": "./src",
+    "paths": {
+      "@*": [
+        "*"
+      ]
+    }
   }
 }

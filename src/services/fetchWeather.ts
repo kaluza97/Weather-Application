@@ -2,7 +2,7 @@ import { Alert } from 'react-native';
 import {
   WeatherDataInterface,
   weatherDataSchema,
-} from '../components/WeatherSearchForm/types';
+} from '@components/WeatherSearchForm/types';
 
 export const fetchWeather = async (
   city: string,

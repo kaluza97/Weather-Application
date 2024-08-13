@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { WeatherDataInterface } from '../../WeatherSearchForm/types';
-import { styles } from '../styles';
-import { Props } from '../types';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
+import { Props } from '@components/Cards/types';
+import { styles } from '@components/Cards/styles';
 
 const WeatherCard: FC<Props> = ({ weatherData }) => {
     const navigation =

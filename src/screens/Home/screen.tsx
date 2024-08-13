@@ -1,11 +1,11 @@
 import { FC, useState } from 'react';
 import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
-import WeatherForm from '../../components/WeatherSearchForm/component';
+import WeatherCard from '@components/Cards/WeatherCard/component';
+import FavoriteCard from '@components/Cards/FavoriteCard/component';
+import WeatherForm from '@components/WeatherSearchForm/component';
+import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
+import { colors } from '@constants/global.styles';
 import { styles } from './styles';
-import WeatherCard from '../../components/Cards/WeatherCard/component';
-import { WeatherDataInterface } from '../../components/WeatherSearchForm/types';
-import FavoriteCard from '../../components/Cards/FavoriteCard/component';
-import { colors } from '../../variables/global.styles';
 
 const HomeScreen: FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherDataInterface | null>(

@@ -9,12 +9,12 @@ import React, { FC, useEffect } from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from './screens/Home/screen';
-import DetailsScreen from './screens/Details/screen';
-import CustomHeader from './components/CustomHeader/component';
-import { RootStackParamList } from './screens/Details/types';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { colors } from './variables/global.styles';
+import DetailsScreen from '@screens/Details/screen';
+import HomeScreen from '@screens/Home/screen';
+import { RootStackParamList } from '@screens/Details/types';
+import CustomHeader from '@components/CustomHeader/component';
+import { colors } from '@constants/global.styles';
 
 const App: FC = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();

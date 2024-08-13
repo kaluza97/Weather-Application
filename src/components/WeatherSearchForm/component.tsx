@@ -1,10 +1,10 @@
 import React, { FC, useState } from 'react';
 import { View, TextInput, TouchableOpacity } from 'react-native';
-import { colors } from '../../variables/global.styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { styles } from './styles';
-import { WeatherFormProps } from './types';
-import { fetchWeather } from '../../services/fetchWeather';
+import { WeatherFormProps } from '@components/WeatherSearchForm/types';
+import { fetchWeather } from '@services/fetchWeather';
+import { styles } from '@components/WeatherSearchForm/styles';
+import { colors } from '@constants/global.styles';
 
 const WeatherSearchForm: FC<WeatherFormProps> = ({ onWeatherData }) => {
   const [cityName, setCityName] = useState<string>('');

@@ -1,11 +1,11 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
 import { View, Text, FlatList, Alert } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import { WeatherDataInterface } from '../../WeatherSearchForm/types';
-import { getFavorites, removeFavorite } from '../../../utils/favoriteUtils';
-import { styles } from '../styles';
-import { fetchWeatherById } from '../../../services/fetchWeather';
-import SwipeableItem from '../SwipeableItem/component';
+import SwipeableItem from '@components/Cards/SwipeableItem/component';
+import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
+import { fetchWeatherById } from '@services/fetchWeather';
+import { getFavorites, removeFavorite } from '@utils/favoriteUtils';
+import { styles } from '@components/Cards/styles';
 
 const FavoriteCard: FC = () => {
   const [favoritesData, setFavoritesData] = useState<
