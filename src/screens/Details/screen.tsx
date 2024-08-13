@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -9,13 +9,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { getFavorites, toggleFavorite } from '@utils/favoriteUtils';
-import { Props } from '@screens/Details/types';
-import { styles } from '@screens/Details/styles';
-import { colors } from '@constants/global.styles';
+import {getFavorites, toggleFavorite} from '@utils/favoriteUtils';
+import {Props} from '@screens/Details/types';
+import {styles} from '@screens/Details/styles';
+import {colors} from '@constants/global.styles';
 
-const DetailsScreen: FC<Props> = ({ route }) => {
-  const { weatherData } = route.params;
+const DetailsScreen: FC<Props> = ({route}) => {
+  const {weatherData} = route.params;
   const currentDate: string = new Date().toLocaleDateString();
   const [isAddedToFavorite, setIsAddedToFavorite] = useState<Array<number>>([]);
 
@@ -42,7 +42,10 @@ const DetailsScreen: FC<Props> = ({ route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={colors.primaryColor} />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={colors.primaryColor}
+      />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         {weatherData ? (
           <>

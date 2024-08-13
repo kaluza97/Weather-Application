@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import React, {FC} from 'react';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Animated, {
   runOnJS,
@@ -7,18 +7,18 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
-import { styles } from '@components/Cards/styles';
-import { Props } from '@components/Cards/AnimatedCard/types';
-import { colors } from '@constants/global.styles';
+import {Gesture, GestureDetector} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {WeatherDataInterface} from '@components/WeatherSearchForm/types';
+import {styles} from '@components/Cards/styles';
+import {Props} from '@components/Cards/AnimatedCard/types';
+import {colors} from '@constants/global.styles';
 
-const AnimatedCard: FC<Props> = ({ item, onRemove }) => {
+const AnimatedCard: FC<Props> = ({item, onRemove}) => {
   const navigation =
     useNavigation<
-      NativeStackNavigationProp<{ Details: { weatherData: WeatherDataInterface } }>
+      NativeStackNavigationProp<{Details: {weatherData: WeatherDataInterface}}>
     >();
   const pressed = useSharedValue<boolean>(false);
   const offset = useSharedValue<number>(0);
@@ -41,17 +41,21 @@ const AnimatedCard: FC<Props> = ({ item, onRemove }) => {
     });
 
   const animatedStyles = useAnimatedStyle(() => ({
-    transform: [{ translateX: offset.value }],
-    backgroundColor: pressed.value ? colors.primaryColorShadow : colors.primaryColor,
+    transform: [{translateX: offset.value}],
+    backgroundColor: pressed.value
+      ? colors.primaryColorShadow
+      : colors.primaryColor,
   }));
 
   const handlePress = (item: WeatherDataInterface): void => {
-    navigation.navigate('Details', { weatherData: item });
+    navigation.navigate('Details', {weatherData: item});
   };
 
   return (
     <GestureDetector gesture={pan}>
-      <Animated.View style={[animatedStyles, styles.container]}>
+      <Animated.View
+        style={[animatedStyles, styles.container]}
+        testID="animated-card">
         <TouchableOpacity
           onPress={() => handlePress(item)}
           style={styles.touchableOpacity}>

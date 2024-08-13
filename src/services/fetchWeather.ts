@@ -1,4 +1,4 @@
-import { Alert } from 'react-native';
+import {Alert} from 'react-native';
 import {
   WeatherDataInterface,
   weatherDataSchema,
@@ -13,12 +13,15 @@ export const fetchWeatherByCityName = async (
   );
 
   if (!response.ok) {
-    Alert.alert("Przepraszamy!", 'Wyszukiwanie przebiegło nieprawidłowo. Spróbuj ponownie później.', [
-      { text: "OK" }
-    ])
+    Alert.alert(
+      'Przepraszamy!',
+      'Wyszukiwanie przebiegło nieprawidłowo. Spróbuj ponownie później.',
+      [{text: 'OK'}],
+    );
     return null;
   }
   const data = await response.json();
+  console.log(data);
   const safeData = weatherDataSchema.safeParse(data);
   if (safeData.success) {
     dataSetter(safeData.data);
@@ -36,9 +39,11 @@ export const fetchWeatherById = async (
   );
 
   if (!response.ok) {
-    Alert.alert("Przepraszamy!", 'Wyszukiwanie przebiegło nieprawidłowo. Spróbuj ponownie później.', [
-      { text: "OK" }
-    ]);
+    Alert.alert(
+      'Przepraszamy!',
+      'Wyszukiwanie przebiegło nieprawidłowo. Spróbuj ponownie później.',
+      [{text: 'OK'}],
+    );
     return null;
   }
   const data = await response.json();
@@ -51,17 +56,19 @@ export const fetchWeatherById = async (
   }
 };
 
-
-export const fetchWeatherByIdsList = async (idList: Array<number>, dataSetter: (data: Array<WeatherDataInterface>) => void) => {
+export const fetchWeatherByIdsList = async (
+  idList: Array<number>,
+  dataSetter: (data: Array<WeatherDataInterface>) => void,
+) => {
   try {
     const arrayOfPromises = idList.map(fetchWeatherById);
     const weatherData = await Promise.all(arrayOfPromises);
-    dataSetter(
-      weatherData.filter(data => data !== null)
-    );
+    dataSetter(weatherData.filter(data => data !== null));
   } catch (error) {
-    Alert.alert("Przepraszamy!", 'Wystąpił błąd podczas pobierania danych pogodowych.', [
-      { text: "OK" }
-    ])
+    Alert.alert(
+      'Przepraszamy!',
+      'Wystąpił błąd podczas pobierania danych pogodowych.',
+      [{text: 'OK'}],
+    );
   }
 };

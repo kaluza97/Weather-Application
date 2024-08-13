@@ -5,16 +5,16 @@
  * @format
  */
 
-import React, { FC, useEffect } from 'react';
+import React, {FC, useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import DetailsScreen from '@screens/Details/screen';
 import HomeScreen from '@screens/Home/screen';
-import { RootStackParamList } from '@screens/Details/types';
+import {RootStackParamList} from '@screens/Details/types';
 import CustomHeader from '@components/CustomHeader/component';
-import { colors } from '@constants/global.styles';
+import {colors} from '@constants/global.styles';
 
 const App: FC = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -26,7 +26,7 @@ const App: FC = () => {
   }, []);
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{flex: 1}}>
       <NavigationContainer
         children={
           <Stack.Navigator
@@ -38,7 +38,7 @@ const App: FC = () => {
                   component={HomeScreen}
                   options={{
                     headerTitle: () => <CustomHeader title="Pogoda" />,
-                    headerStyle: { backgroundColor: colors.black },
+                    headerStyle: {backgroundColor: colors.black},
                   }}
                 />
                 <Stack.Screen
@@ -46,7 +46,7 @@ const App: FC = () => {
                   component={DetailsScreen}
                   options={{
                     headerTitle: () => <CustomHeader title="" />,
-                    headerStyle: { backgroundColor: colors.primaryColor },
+                    headerStyle: {backgroundColor: colors.primaryColor},
                     headerTintColor: colors.white,
                   }}
                 />
