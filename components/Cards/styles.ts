@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
-import { primaryColor, white } from '../../variables/global.styles';
+import {StyleSheet} from 'react-native';
+import {primaryColor, white} from '../../variables/global.styles';
 
 export const styles = StyleSheet.create({
   container: {
@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 26,
-    color: white
+    color: white,
   },
   touchableOpacity: {
     flex: 1,
