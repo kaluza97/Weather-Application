@@ -1,13 +1,13 @@
 import React, { FC, useCallback, useEffect, useState } from 'react';
-import { View, Text, FlatList, Alert } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
-import SwipeableItem from '@components/Cards/SwipeableItem/component';
+import AnimatedCard from '@components/Cards/AnimatedCard/component';
 import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
-import { fetchWeatherById } from '@services/fetchWeather';
+import { fetchWeatherById, fetchWeatherByIdsList } from '@services/fetchWeather';
 import { getFavorites, removeFavorite } from '@utils/favoriteUtils';
-import { styles } from '@components/Cards/styles';
+import { styles } from '@components/FavoriteList/styles';
 
-const FavoriteCard: FC = () => {
+const FavoriteList: FC = () => {
   const [favoritesData, setFavoritesData] = useState<
     Array<WeatherDataInterface>
   >([]);
@@ -25,22 +25,7 @@ const FavoriteCard: FC = () => {
 
   useEffect(() => {
     if (favoritesIdList.length === 0) return;
-
-    const fetchWeatherData = async () => {
-      try {
-        const arrayOfPromises = favoritesIdList.map(fetchWeatherById);
-        const weatherData = await Promise.all(arrayOfPromises);
-        setFavoritesData(
-          weatherData.filter(data => data !== null)
-        );
-      } catch (error) {
-        Alert.alert("Przepraszamy!", 'Wystąpił błąd podczas pobierania danych pogodowych.', [
-          { text: "OK" }
-        ])
-      }
-    };
-
-    fetchWeatherData();
+    fetchWeatherByIdsList(favoritesIdList, setFavoritesData);
   }, [favoritesIdList, fetchWeatherById]);
 
   const handleRemove = async (id: number) => {
@@ -50,7 +35,7 @@ const FavoriteCard: FC = () => {
   };
 
   const renderFavoriteItem = ({ item }: { item: WeatherDataInterface }) => (
-    <SwipeableItem item={item} onRemove={handleRemove} />
+    <AnimatedCard item={item} onRemove={handleRemove} />
   );
 
   return (
@@ -69,4 +54,4 @@ const FavoriteCard: FC = () => {
   );
 };
 
-export default FavoriteCard;
+export default FavoriteList;

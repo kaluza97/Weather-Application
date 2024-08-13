@@ -4,9 +4,9 @@ import {
   weatherDataSchema,
 } from '@components/WeatherSearchForm/types';
 
-export const fetchWeather = async (
+export const fetchWeatherByCityName = async (
   city: string,
-  onWeatherData: (data: WeatherDataInterface) => void,
+  dataSetter: (data: WeatherDataInterface) => void,
 ): Promise<void | null> => {
   const response = await fetch(
     `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}&units=metric`,
@@ -21,10 +21,10 @@ export const fetchWeather = async (
   const data = await response.json();
   const safeData = weatherDataSchema.safeParse(data);
   if (safeData.success) {
-    onWeatherData(safeData.data);
+    dataSetter(safeData.data);
   } else {
     // fallback if lack of data
-    onWeatherData(data);
+    dataSetter(data);
   }
 };
 
@@ -48,5 +48,20 @@ export const fetchWeatherById = async (
   } else {
     // fallback if lack of data
     return data;
+  }
+};
+
+
+export const fetchWeatherByIdsList = async (idList: Array<number>, dataSetter: (data: Array<WeatherDataInterface>) => void) => {
+  try {
+    const arrayOfPromises = idList.map(fetchWeatherById);
+    const weatherData = await Promise.all(arrayOfPromises);
+    dataSetter(
+      weatherData.filter(data => data !== null)
+    );
+  } catch (error) {
+    Alert.alert("Przepraszamy!", 'Wystąpił błąd podczas pobierania danych pogodowych.', [
+      { text: "OK" }
+    ])
   }
 };

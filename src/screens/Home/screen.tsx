@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
-import WeatherCard from '@components/Cards/WeatherCard/component';
-import FavoriteCard from '@components/Cards/FavoriteCard/component';
+import StaticCard from '@components/Cards/StaticCard/component';
+import FavoriteList from '@components/FavoriteList/component';
 import WeatherForm from '@components/WeatherSearchForm/component';
 import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
 import { colors } from '@constants/global.styles';
@@ -18,9 +18,9 @@ const HomeScreen: FC = () => {
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <WeatherForm onWeatherData={setWeatherData} />
         {weatherData ? (
-          <WeatherCard weatherData={weatherData} />
+          <StaticCard weatherData={weatherData} />
         ) : (
-          <FavoriteCard />
+          <FavoriteList />
         )}
       </ScrollView>
     </SafeAreaView>

@@ -4,10 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
-import { Props } from '@components/Cards/types';
+import { Props } from '@components/Cards/StaticCard/types';
 import { styles } from '@components/Cards/styles';
 
-const WeatherCard: FC<Props> = ({ weatherData }) => {
+const StaticCard: FC<Props> = ({ weatherData }) => {
     const navigation =
         useNavigation<
             NativeStackNavigationProp<{ Details: { weatherData: WeatherDataInterface } }>
@@ -46,4 +46,4 @@ const WeatherCard: FC<Props> = ({ weatherData }) => {
     );
 };
 
-export default WeatherCard;
+export default StaticCard;

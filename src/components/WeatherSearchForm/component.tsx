@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { View, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { WeatherFormProps } from '@components/WeatherSearchForm/types';
-import { fetchWeather } from '@services/fetchWeather';
+import { fetchWeatherByCityName } from '@services/fetchWeather';
 import { styles } from '@components/WeatherSearchForm/styles';
 import { colors } from '@constants/global.styles';
 
@@ -11,7 +11,7 @@ const WeatherSearchForm: FC<WeatherFormProps> = ({ onWeatherData }) => {
 
   const handleFetchWeather = () => {
     if (cityName) {
-      fetchWeather(cityName, onWeatherData);
+      fetchWeatherByCityName(cityName, onWeatherData);
     } else {
       onWeatherData(null);
     }

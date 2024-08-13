@@ -12,14 +12,10 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
 import { styles } from '@components/Cards/styles';
+import { Props } from '@components/Cards/AnimatedCard/types';
 import { colors } from '@constants/global.styles';
 
-interface SwipeableItemProps {
-  item: WeatherDataInterface;
-  onRemove: (id: number) => void;
-}
-
-const SwipeableItem: FC<SwipeableItemProps> = ({ item, onRemove }) => {
+const AnimatedCard: FC<Props> = ({ item, onRemove }) => {
   const navigation =
     useNavigation<
       NativeStackNavigationProp<{ Details: { weatherData: WeatherDataInterface } }>
@@ -82,4 +78,4 @@ const SwipeableItem: FC<SwipeableItemProps> = ({ item, onRemove }) => {
   );
 };
 
-export default SwipeableItem;
+export default AnimatedCard;

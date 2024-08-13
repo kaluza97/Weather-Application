@@ -14,6 +14,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 8,
   },
+  touchableOpacity: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   city: {
     fontSize: 28,
     fontWeight: 'bold',
@@ -30,19 +36,8 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: colors.white,
   },
-  noFavorites: {
-    fontSize: 28,
-    color: colors.white,
-    textAlign: 'center',
-  },
   icon: {
     fontSize: 26,
     color: colors.white,
-  },
-  touchableOpacity: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
+  }
 });
