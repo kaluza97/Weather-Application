@@ -1,9 +1,9 @@
-import {StyleSheet} from 'react-native';
-import {primaryColor, white} from '../../variables/global.styles';
+import { StyleSheet } from 'react-native';
+import { colors } from '../../variables/global.styles';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: primaryColor,
+    backgroundColor: colors.primaryColor,
     padding: 16,
     margin: 20,
     marginTop: 0,
@@ -17,27 +17,27 @@ export const styles = StyleSheet.create({
   city: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: white,
+    color: colors.white,
     marginLeft: 8,
   },
   description: {
     fontSize: 18,
     marginBottom: 16,
-    color: white,
+    color: colors.white,
   },
   temperature: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: white,
+    color: colors.white,
   },
   noFavorites: {
     fontSize: 28,
-    color: white,
+    color: colors.white,
     textAlign: 'center',
   },
   icon: {
     fontSize: 26,
-    color: white,
+    color: colors.white,
   },
   touchableOpacity: {
     flex: 1,

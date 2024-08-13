@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
-import {buttonsColor, primaryColor, white} from '../../variables/global.styles';
+import { StyleSheet } from 'react-native';
+import { colors } from '../../variables/global.styles';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: primaryColor,
+    backgroundColor: colors.primaryColor,
     padding: 20,
   },
   header: {
@@ -22,35 +22,35 @@ export const styles = StyleSheet.create({
   detailText: {
     fontSize: 22,
     padding: 10,
-    color: white,
+    color: colors.white,
   },
   cityName: {
     fontSize: 34,
     fontWeight: 'bold',
-    color: white,
+    color: colors.white,
   },
   currentTemp: {
     fontSize: 110,
-    color: white,
+    color: colors.white,
   },
   weatherIcon: {
     width: 150,
     height: 150,
   },
   icon: {
-    color: white,
+    color: colors.white,
     fontSize: 28,
     marginRight: 10,
   },
   markerIcon: {
-    backgroundColor: primaryColor,
+    backgroundColor: colors.primaryColor,
     fontSize: 34,
     padding: 10,
     borderRadius: 10,
-    color: white,
+    color: colors.white,
   },
   button: {
-    backgroundColor: buttonsColor,
+    backgroundColor: colors.buttonsColor,
     marginTop: 40,
     borderRadius: 10,
   },
@@ -58,6 +58,6 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     padding: 15,
     fontWeight: 'bold',
-    color: primaryColor,
+    color: colors.primaryColor,
   },
 });

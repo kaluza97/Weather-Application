@@ -1,3 +1,4 @@
+import { Alert } from 'react-native';
 import {
   WeatherDataInterface,
   weatherDataSchema,
@@ -12,7 +13,9 @@ export const fetchWeather = async (
   );
 
   if (!response.ok) {
-    console.error('Wyszukiwanie przebiegło nieprawidłowo');
+    Alert.alert("Przepraszamy!", 'Wyszukiwanie przebiegło nieprawidłowo. Spróbuj ponownie później.', [
+      { text: "OK" }
+    ])
     return null;
   }
   const data = await response.json();
@@ -33,7 +36,9 @@ export const fetchWeatherById = async (
   );
 
   if (!response.ok) {
-    console.error('Wyszukiwanie przebiegło nieprawidłowo');
+    Alert.alert("Przepraszamy!", 'Wyszukiwanie przebiegło nieprawidłowo. Spróbuj ponownie później.', [
+      { text: "OK" }
+    ]);
     return null;
   }
   const data = await response.json();

@@ -1,5 +1,5 @@
-import React, {FC} from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import React, { FC } from 'react';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Animated, {
   runOnJS,
@@ -7,25 +7,22 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
-import {Gesture, GestureDetector} from 'react-native-gesture-handler';
-import {WeatherDataInterface} from '../../WeatherSearchForm/types';
-import {styles} from '../styles';
-import {
-  primaryColor,
-  primaryColorShadow,
-} from '../../../variables/global.styles';
-import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import { WeatherDataInterface } from '../../WeatherSearchForm/types';
+import { styles } from '../styles';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { colors } from '../../../variables/global.styles';
 
 interface SwipeableItemProps {
   item: WeatherDataInterface;
   onRemove: (id: number) => void;
 }
 
-const SwipeableItem: FC<SwipeableItemProps> = ({item, onRemove}) => {
+const SwipeableItem: FC<SwipeableItemProps> = ({ item, onRemove }) => {
   const navigation =
     useNavigation<
-      NativeStackNavigationProp<{Details: {weatherData: WeatherDataInterface}}>
+      NativeStackNavigationProp<{ Details: { weatherData: WeatherDataInterface } }>
     >();
   const pressed = useSharedValue<boolean>(false);
   const offset = useSharedValue<number>(0);
@@ -48,12 +45,12 @@ const SwipeableItem: FC<SwipeableItemProps> = ({item, onRemove}) => {
     });
 
   const animatedStyles = useAnimatedStyle(() => ({
-    transform: [{translateX: offset.value}],
-    backgroundColor: pressed.value ? primaryColorShadow : primaryColor,
+    transform: [{ translateX: offset.value }],
+    backgroundColor: pressed.value ? colors.primaryColorShadow : colors.primaryColor,
   }));
 
   const handlePress = (item: WeatherDataInterface): void => {
-    navigation.navigate('Details', {weatherData: item});
+    navigation.navigate('Details', { weatherData: item });
   };
 
   return (

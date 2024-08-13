@@ -1,4 +1,4 @@
-import {z} from 'zod';
+import { z } from 'zod';
 
 enum WeatherDescriptions {
   ClearSky = 'clear sky',
@@ -35,7 +35,7 @@ enum WeatherIcons {
 
 export const weatherDataSchema = z.object({
   base: z.string(),
-  clouds: z.object({all: z.number()}),
+  clouds: z.object({ all: z.number() }),
   cod: z.number(),
   coord: z.object({
     lat: z.number(),

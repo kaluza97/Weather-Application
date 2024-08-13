@@ -1,10 +1,6 @@
-import {StyleSheet} from 'react-native';
-import {
-  secondaryColor,
-  inputTextColor,
-  primaryColor,
-  white,
-} from '../../variables/global.styles';
+import { StyleSheet } from 'react-native';
+import { colors } from '../../variables/global.styles';
+
 
 export const styles = StyleSheet.create({
   container: {
@@ -20,18 +16,18 @@ export const styles = StyleSheet.create({
     padding: 10,
     fontSize: 18,
     borderRadius: 10,
-    backgroundColor: secondaryColor,
-    color: inputTextColor,
+    backgroundColor: colors.secondaryColor,
+    color: colors.inputTextColor,
     flex: 1,
   },
   touchableOpacity: {
     marginLeft: 10,
   },
   icon: {
-    backgroundColor: primaryColor,
+    backgroundColor: colors.primaryColor,
     fontSize: 24,
     padding: 10,
     borderRadius: 10,
-    color: white,
+    color: colors.white,
   },
 });
