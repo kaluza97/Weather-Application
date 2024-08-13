@@ -8,13 +8,13 @@
 import React, {FC, useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer, RouteProp} from '@react-navigation/native';
-import HomeScreen from './screens/Home/screen';
-import DetailsScreen from './screens/Details/screen';
-import CustomHeader from './components/CustomHeader/component';
-import {black, primaryColor, white} from './variables/global.styles';
-import {RootStackParamList} from './screens/Details/types';
+import {NavigationContainer} from '@react-navigation/native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import DetailsScreen from '@screens/Details/screen';
+import HomeScreen from '@screens/Home/screen';
+import {RootStackParamList} from '@screens/Details/types';
+import CustomHeader from '@components/CustomHeader/component';
+import {colors} from '@constants/global.styles';
 
 const App: FC = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -38,7 +38,7 @@ const App: FC = () => {
                   component={HomeScreen}
                   options={{
                     headerTitle: () => <CustomHeader title="Pogoda" />,
-                    headerStyle: {backgroundColor: black},
+                    headerStyle: {backgroundColor: colors.black},
                   }}
                 />
                 <Stack.Screen
@@ -46,8 +46,8 @@ const App: FC = () => {
                   component={DetailsScreen}
                   options={{
                     headerTitle: () => <CustomHeader title="" />,
-                    headerStyle: {backgroundColor: primaryColor},
-                    headerTintColor: white,
+                    headerStyle: {backgroundColor: colors.primaryColor},
+                    headerTintColor: colors.white,
                   }}
                 />
               </>
