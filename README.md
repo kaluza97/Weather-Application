@@ -1,4 +1,4 @@
-This app is designed only for **Android**! 
+This app is working only for **Android**! 
 To get started, clone the project from our GitHub repo and install the necessary packages using 
 **npm install** or **yarn install**
 
