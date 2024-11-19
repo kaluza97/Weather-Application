@@ -3,8 +3,8 @@
 **yarn install**
 
 ![1](https://github.com/user-attachments/assets/0eaa107b-0835-463f-9c19-e80d771ac620)
-![6](https://github.com/user-attachments/assets/4577584b-9686-4e6a-9b4f-2847a80ffbf2)
 ![9](https://github.com/user-attachments/assets/c256d140-2b1e-44cf-b896-5dec4cb1e375)
+![6](https://github.com/user-attachments/assets/4577584b-9686-4e6a-9b4f-2847a80ffbf2)
 
 
 When you open the app, you'll see a **splash screen**, followed by the main menu. 
