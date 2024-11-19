@@ -6,6 +6,8 @@
 ![2](https://github.com/user-attachments/assets/e6b1db4b-aa57-4a97-a669-6e61606c9d0b)
 ![3](https://github.com/user-attachments/assets/c7333424-3668-4428-a84c-6ada0d217e58)
 ![4](https://github.com/user-attachments/assets/5d9a90c5-207e-4422-865d-7670e5000196)
+![5](https://github.com/user-attachments/assets/575a41f9-e9d7-4c7f-91fb-77ddc1f2632c)
+![6](https://github.com/user-attachments/assets/4577584b-9686-4e6a-9b4f-2847a80ffbf2)
 
 
 When you open the app, you'll see a **splash screen**, followed by the main menu. 
