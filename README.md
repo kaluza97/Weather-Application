@@ -2,10 +2,10 @@
 ## To get started, clone the project from our GitHub repo and install the necessary packages using 
 **yarn install**
 
-![1](https://github.com/user-attachments/assets/46abe2e1-bc74-49f3-bdeb-36524e3d9643)
-![2](https://github.com/user-attachments/assets/754a6e09-d2d0-4e4d-a143-621d31256028)
-![3](https://github.com/user-attachments/assets/769aeea7-06e5-47c5-ba95-4d9c41e68a91)
-![4](https://github.com/user-attachments/assets/f29363ea-5e6f-40a1-b643-3acbfd279dc1)
+![1](https://github.com/user-attachments/assets/0eaa107b-0835-463f-9c19-e80d771ac620)
+![2](https://github.com/user-attachments/assets/e6b1db4b-aa57-4a97-a669-6e61606c9d0b)
+![3](https://github.com/user-attachments/assets/c7333424-3668-4428-a84c-6ada0d217e58)
+![4](https://github.com/user-attachments/assets/5d9a90c5-207e-4422-865d-7670e5000196)
 
 
 When you open the app, you'll see a **splash screen**, followed by the main menu. 
