@@ -9,7 +9,7 @@ export const fetchWeatherByCityName = async (
 ): Promise<WeatherDataInterface | null> => {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.WEATHER_API_KEY}&units=metric`
     );
 
     const data = await response.json();
