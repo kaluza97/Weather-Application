@@ -1,16 +1,14 @@
-import React, {FC, useCallback, useEffect, useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
-import {useFocusEffect} from '@react-navigation/native';
+import React, { FC, useCallback, useEffect, useState } from 'react';
+import { View, Text, FlatList } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import AnimatedCard from '@components/Cards/AnimatedCard/component';
-import {WeatherDataInterface} from '@components/WeatherSearchForm/types';
-import {fetchWeatherById, fetchWeatherByIdsList} from '@services/fetchWeather';
-import {getFavorites, removeFavorite} from '@utils/favoriteUtils';
-import {styles} from '@components/FavoriteList/styles';
+import { WeatherDataInterface } from '@components/WeatherSearchForm/types';
+import { fetchWeatherByIdsList } from '@services/fetchWeather';
+import { getFavorites, removeFavorite } from '@utils/favoriteUtils';
+import { styles } from '@components/FavoriteList/styles';
 
 const FavoriteList: FC = () => {
-  const [favoritesData, setFavoritesData] = useState<
-    Array<WeatherDataInterface>
-  >([]);
+  const [favoritesData, setFavoritesData] = useState<Array<WeatherDataInterface>>([]);
   const [favoritesIdList, setFavoritesIdList] = useState<Array<number>>([]);
 
   useFocusEffect(
@@ -24,9 +22,13 @@ const FavoriteList: FC = () => {
   );
 
   useEffect(() => {
-    if (favoritesIdList.length === 0) return;
-    fetchWeatherByIdsList(favoritesIdList, setFavoritesData);
-  }, [favoritesIdList, fetchWeatherById]);
+    const fetchFavoritesWeatherData = async () => {
+      if (favoritesIdList.length === 0) return;
+      const weatherData = await fetchWeatherByIdsList(favoritesIdList);
+      setFavoritesData(weatherData);
+    };
+    fetchFavoritesWeatherData();
+  }, [favoritesIdList]);
 
   const handleRemove = async (id: number) => {
     await removeFavorite(id);
@@ -34,7 +36,7 @@ const FavoriteList: FC = () => {
     setFavoritesIdList(prevList => prevList.filter(itemId => itemId !== id));
   };
 
-  const renderFavoriteItem = ({item}: {item: WeatherDataInterface}) => (
+  const renderFavoriteItem = ({ item }: { item: WeatherDataInterface }) => (
     <AnimatedCard item={item} onRemove={handleRemove} />
   );
 

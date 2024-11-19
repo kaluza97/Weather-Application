@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
-import {colors} from '@constants/global.styles';
+import { StyleSheet } from 'react-native';
+import { colors } from '@constants/global.styles';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.primaryColor,
+    backgroundColor: colors.primary,
     padding: 20,
   },
   header: {
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
     marginRight: 10,
   },
   markerIcon: {
-    backgroundColor: colors.primaryColor,
+    backgroundColor: colors.primary,
     fontSize: 34,
     padding: 10,
     borderRadius: 10,
@@ -58,6 +58,6 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     padding: 15,
     fontWeight: 'bold',
-    color: colors.primaryColor,
+    color: colors.primary,
   },
 });

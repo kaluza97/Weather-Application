@@ -1,17 +1,18 @@
-import React, {FC, useState} from 'react';
-import {View, TextInput, TouchableOpacity} from 'react-native';
+import React, { FC, useState } from 'react';
+import { View, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {WeatherFormProps} from '@components/WeatherSearchForm/types';
-import {fetchWeatherByCityName} from '@services/fetchWeather';
-import {styles} from '@components/WeatherSearchForm/styles';
-import {colors} from '@constants/global.styles';
+import { WeatherFormProps } from '@components/WeatherSearchForm/types';
+import { fetchWeatherByCityName } from '@services/fetchWeather';
+import { styles } from '@components/WeatherSearchForm/styles';
+import { colors } from '@constants/global.styles';
 
-const WeatherSearchForm: FC<WeatherFormProps> = ({onWeatherData}) => {
+const WeatherSearchForm: FC<WeatherFormProps> = ({ onWeatherData }) => {
   const [cityName, setCityName] = useState<string>('');
 
-  const handleFetchWeather = () => {
+  const handleFetchWeather = async () => {
     if (cityName) {
-      fetchWeatherByCityName(cityName, onWeatherData);
+      const weatherData = await fetchWeatherByCityName(cityName);
+      onWeatherData(weatherData);
     } else {
       onWeatherData(null);
     }
@@ -30,7 +31,7 @@ const WeatherSearchForm: FC<WeatherFormProps> = ({onWeatherData}) => {
           value={cityName}
           onChangeText={setCityName}
           style={styles.searchInput}
-          placeholderTextColor={colors.inputPlaceholderColor}
+          placeholderTextColor={colors.white}
         />
         <TouchableOpacity
           onPress={handleFetchWeather}
