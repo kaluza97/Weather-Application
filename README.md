@@ -1,6 +1,6 @@
 ## This app is working only for **Android**! 
-### To get started: clone the project from our GitHub repo and install the necessary packages using 
-**yarn install**
+### To get started: clone the project from the GitHub repo and install the necessary packages. 
+### Using **yarn install**
 
 ![1](https://github.com/user-attachments/assets/0eaa107b-0835-463f-9c19-e80d771ac620)
 ![6](https://github.com/user-attachments/assets/4577584b-9686-4e6a-9b4f-2847a80ffbf2)
