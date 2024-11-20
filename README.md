@@ -17,11 +17,11 @@ You can add or remove cities from your favorites list here.
 We've used **React Native Reanimated** and **Gesture Handler** to create some cool animations. 
 Try swiping a card to the left in the main view to remove it from your favorites!
 
-I am using **Async Storage** to save your favorites list.
+I've used **Async Storage** to save your favorites list.
 
 
-# If you run the app, follow these steps:
+## If you start the app, follow these steps:
 
 1. Go to the Weather API website: https://openweathermap.org/api
-2. Create an account and generate a free API key.
-3. Then, in your project, create a .env file in the "src" directory and add the line WEATHER_API_KEY=YOUR_API_KEY there.
+2. Create an account and generate a free API key
+3. Then, in your project, create a .env file in the "src" directory and add the line WEATHER_API_KEY=YOUR_API_KEY
